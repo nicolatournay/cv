@@ -1,0 +1,123 @@
+<nav aria-label="Navigation principale">
+    <!-- Sélecteur de langue -->
+    <div aria-label="Sélecteur de langue" class="mb-6 text-center">
+        <label for="language-select" class="sr-only">Choisir la langue</label>
+        <select 
+            id="language-select" 
+            hx-post="/set-language/" 
+            hx-trigger="change" 
+            hx-target="#main" 
+            hx-swap="innerHTML"
+            hx-vals='{"lang": this.value}'
+            hx-push-url="true"
+            class="text-xl md:text-lg font-semibold focus:outline-none bg-inherit p-0 m-0"
+            aria-label="Sélecteur de langue"
+        >
+            <option value="fr" class="text-black">FR</option>
+            <option value="en" class="text-black">EN</option>
+            <option value="nl" class="text-black">NL</option>
+        </select>
+    </div>
+
+    <ul class="space-y-6">
+        <!-- Liens de navigation principaux -->
+        <li :class="activeRoute === '/home' ? 'text-center underline underline-offset-8 decoration-4' : 'text-center'">
+            <a href="#"
+                @click="open = !open ; pageTitle = 'Home'"
+                hx-post="/partials/home"
+                hx-trigger="click"
+                hx-target="#main"
+                hx-swap="innerHTML"
+                hx-push-url="home"
+                class="text-xl md:text-lg font-semibold focus:outline-none"
+                aria-label="Aller à la page d'accueil"
+            >
+                Home
+            </a>
+        </li>
+        <li :class="activeRoute === '/skills' ? 'text-center underline underline-offset-8 decoration-4' : 'text-center'">
+            <a href="#"
+                @click="open = !open ; pageTitle = 'Skills'"
+                hx-post="/partials/skills"
+                hx-trigger="click"
+                hx-target="#main"
+                hx-swap="innerHTML"
+                hx-push-url="skills"
+                class="text-xl md:text-lg font-semibold focus:outline-none"
+                aria-label="Voir mes compétences"
+            >
+                Skills
+            </a>
+        </li>
+        <li :class="activeRoute === '/education' ? 'text-center underline underline-offset-8 decoration-4' : 'text-center'">
+            <a href="#"
+                @click="open = !open ; pageTitle = 'Education'"
+                hx-post="/partials/education"
+                hx-trigger="click"
+                hx-target="#main"
+                hx-swap="innerHTML"
+                hx-push-url="education"
+                class="text-xl md:text-lg font-semibold focus:outline-none"
+                aria-label="Voir mon parcours éducatif"
+            >
+                Education
+            </a>
+        </li>
+        <li :class="activeRoute === '/experience' ? 'text-center underline underline-offset-8 decoration-4' : 'text-center'">
+            <a href="#"
+                @click="open = !open ; pageTitle = 'Experience'"
+                hx-post="/partials/experience"
+                hx-trigger="click"
+                hx-target="#main"
+                hx-swap="innerHTML"
+                hx-push-url="experience"
+                class="text-xl md:text-lg font-semibold focus:outline-none"
+                aria-label="Voir mon expérience professionnelle"
+            >
+                Experience
+            </a>
+        </li>
+        <li :class="activeRoute === '/portfolio' ? 'text-center underline underline-offset-8 decoration-4' : 'text-center'">
+            <a href="#"
+                @click="open = !open ; pageTitle = 'Portfolio'"
+                hx-post="/partials/portfolio"
+                hx-trigger="click"
+                hx-target="#main"
+                hx-swap="innerHTML"
+                hx-push-url="portfolio"
+                class="text-xl md:text-lg font-semibold focus:outline-none"
+                aria-label="Voir mon portfolio"
+            >
+                Portfolio
+            </a>
+        </li>
+        <li :class="activeRoute === '/blog' ? 'text-center underline underline-offset-8 decoration-4' : 'text-center'">
+            <a href="#"
+                @click="open = !open ; pageTitle = 'Blog'"
+                hx-post="/partials/blog"
+                hx-trigger="click"
+                hx-target="#main"
+                hx-swap="innerHTML"
+                hx-push-url="blog"
+                class="text-xl md:text-lg font-semibold focus:outline-none"
+                aria-label="Accéder à mon blog"
+            >
+                Blog
+            </a>
+        </li>
+        <li :class="activeRoute === '/contact' ? 'text-center underline underline-offset-8 decoration-4' : 'text-center'">
+            <a href="#"
+                @click="open = !open ; pageTitle = 'Contact'"
+                hx-post="/partials/contact"
+                hx-trigger="click"
+                hx-target="#main"
+                hx-swap="innerHTML"
+                hx-push-url="contact"
+                class="text-xl md:text-lg font-semibold focus:outline-none"
+                aria-label="Me contacter"
+            >
+                Contact
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,14 @@
+---
+interface Props {
+    order: "primary" | "secondary", // Restreint les valeurs possibles pour `order`
+    link?: string,
+    content: string
+}
+
+const { order, link, content } = Astro.props;
+
+// Détermine la classe en fonction de la valeur de `order`
+const buttonClass = order === "primary" ? "bg-red-600" : "bg-blue-600";
+---
+
+<a href={link} class={`${buttonClass} p-4 rounded-lg text-white`}>{content}</a>

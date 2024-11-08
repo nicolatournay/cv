@@ -1,0 +1,14 @@
+---
+const {post, url} = Astro.props;
+---
+
+<main
+    id="main"
+    hx-post={post}
+    hx-trigger="load"
+    hx-target="this"
+    hx-swap="innerHTML"
+    hx-push-url={url}
+    class="md:w-3/4 p-4 md:h-4/5 md:absolute md:left-1/4"
+>
+</main>

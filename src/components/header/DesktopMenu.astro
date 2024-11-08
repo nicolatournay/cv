@@ -1,0 +1,29 @@
+---
+import Avatar from './Avatar.astro';
+import Logo from './Logo.astro';
+import Navbar from './Navbar.astro';
+---
+
+<header
+    class="hidden md:flex md:flex-col md:w-1/4 bg-blue-600 text-white h-screen p-8 space-y-6 items-center fixed"
+    aria-label="En-tête principal"
+    x-data="{ activeRoute: window.location.pathname }"
+    x-init="
+    // Met à jour la route active lors des changements d'URL
+    window.addEventListener('htmx:afterSettle', () => {
+        activeRoute = window.location.pathname;
+    });
+    "
+>
+    <!-- Avatar -->
+    <Avatar
+        src="/img/nicola-pp.jpeg"
+        alt="My handsome face"
+    />
+
+    <!-- Logo -->
+    <Logo />
+
+    <!-- Menu vertical -->
+    <Navbar />
+</header>

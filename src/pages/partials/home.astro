@@ -1,0 +1,24 @@
+---
+import CallToAction from "../../components/CallToAction.astro";
+import DownloadButton from "../../components/DownloadButton.astro";
+
+export const partial = true;
+---
+
+<div class="flex flex-col items-center justify-center gap-8 h-full">
+    <hgroup class="text-center">
+        <h2 class="text-8xl font-extrabold mb-6">Open to work</h2>
+        <p class="text-lg font-semibold">Front-End dev in the making, former communication officer 💻 <br>Passionate bookworm 📖 Obstacle course enthusiast 👟 Horror fan 👻 <br>Dad of two little monsters 🍼</p>
+    </hgroup>
+    <div class="flex flex-col md:flex-row gap-8">
+        <CallToAction
+            order="primary"
+            content="Hire me!"
+            link="/contact"
+        />
+        <DownloadButton
+            link="/docs/cv-nicola-tournay-2024.pdf"
+            content="Download my resume (pdf)"
+        />
+    </div>
+</div>

@@ -1,0 +1,13 @@
+---
+import Credits from "./Credits.astro"
+
+import ContactNav from "./ContactNav.astro"
+
+import OpenSource from "./OpenSource.astro"
+---
+
+<footer x-data="{ year: new Date().getFullYear() }" class="p-4 flex flex-col text-center justify-center md:w-3/4 md:absolute md:left-1/4 md:bottom-0 w-full space-y-2">
+    <ContactNav />
+    <OpenSource />
+    <Credits />
+</footer>

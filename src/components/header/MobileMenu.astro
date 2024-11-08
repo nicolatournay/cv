@@ -1,0 +1,53 @@
+---
+import Avatar from './Avatar.astro';
+import Button from './Button.astro';
+import Logo from './Logo.astro';
+import Navbar from './Navbar.astro';
+---
+
+<header
+    x-data="{
+        open: false,
+        activeRoute: false
+    }"
+    class="md:hidden relative"
+    aria-label="Menu mobile"
+>
+    <!-- Barre du haut avec logo et bouton hamburger -->
+    <div class="flex items-center justify-between bg-blue-600 p-4" id="mobile-header">
+        <!-- Logo -->
+        <Logo />
+
+        <!-- Bouton hamburger -->
+        <Button />
+    </div>
+
+    <!-- Menu déroulant pour mobile -->
+    <div
+        id="mobile-menu"
+        x-show="open"
+        class="fixed inset-0 bg-red-600 text-white flex flex-col items-center justify-center p-4 overflow-scroll"
+        @click.away="open = false"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 transform scale-95"
+        x-transition:enter-end="opacity-100 transform scale-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 transform scale-100"
+        x-transition:leave-end="opacity-0 transform scale-95"
+        role="dialog"
+        aria-labelledby="menu-title"
+    >
+        <Button class="absolute top-0 right-0 m-4" />
+        <div class="space-y-8 mb-8 flex flex-col items-center">
+            <Avatar
+                src="/img/nicola-pp.jpeg"
+                alt="My handsome face"
+            />
+            <h1 class="text-xl text-center font-bold">Nicola Tournay | Web Developer</h1>
+            <h2 id="menu-title" class="sr-only">Menu de navigation mobile</h2>
+        </div>
+        <Navbar />
+    </div>
+</header>
+
+

@@ -1,0 +1,10 @@
+---
+interface Props {
+    link: string,
+    content: string
+}
+
+const { link, content} = Astro.props;
+---
+
+<a href={link} class="bg-blue-500 p-4 rounded-lg text-white" download>{content}</a>
